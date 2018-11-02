@@ -12,7 +12,7 @@ RUN mkdir -p /home/user && \
     chmod -R g=u /home/user
 RUN chmod g=u /etc/passwd
 ADD uid_entrypoint /uid_entrypoint
-RUN chmod -R u+x /uid_entrypoint
+RUN chmod u+x /uid_entrypoint
 ENTRYPOINT [ "/uid_entrypoint" ]
 USER 1001
 ENV HOME=/home/user
