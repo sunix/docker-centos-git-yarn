@@ -11,8 +11,9 @@ RUN mkdir -p /home/user && \
     chgrp -R 0 /home/user && \
     chmod -R g=u /home/user
 RUN chmod g=u /etc/passwd
-ADD uid_entrypoint /home/user/uid_entrypoint
-ENTRYPOINT [ "/home/user/uid_entrypoint" ]
+ADD uid_entrypoint /uid_entrypoint
+RUN chmod -R u+x /uid_entrypoint
+ENTRYPOINT [ "/uid_entrypoint" ]
 USER 1001
 ENV HOME=/home/user
 CMD tail -f /dev/null
