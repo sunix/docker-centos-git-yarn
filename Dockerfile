@@ -5,7 +5,7 @@ RUN curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | tee /etc/yum.repos.d/yarn.re
 # Install nodejs/npm/yarn
 RUN curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
 
-RUN yum install -y epel-release && yum install -y git nodejs sudo make yarn gcc-c++ unzip jq
+RUN yum install -y epel-release && yum install -y git nodejs sudo make yarn gcc-c++ unzip jq expect
 
 RUN mkdir -p /home/user && \
     chgrp -R 0 /home/user && \
